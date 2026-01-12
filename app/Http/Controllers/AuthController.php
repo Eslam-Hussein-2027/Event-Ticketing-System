@@ -16,7 +16,7 @@ class AuthController extends Controller
             ],401);
         }
         $user = User::where ('email',$request->email)->first();
-        $token= $user->createToken('token')->plaintextToken;
+        $token= $user->createToken('token')->plainTextToken;
         return response()->json([
             'message'=>"login successful",
             'your token is'=>$token,
@@ -40,6 +40,6 @@ class AuthController extends Controller
         return response()->json([
             'message'=>'you are register successful',
             'user'=>$user,
-        ],201);
+        ]);
     }
 }
